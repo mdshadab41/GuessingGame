@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".GameFragment">
+
+    <data>
+        <variable
+            name="gameViewModel"
+            type="com.example.guessinggame.GameViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+
+ <TextView
+     android:id="@+id/word"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_gravity="center"
+     android:textSize="36sp"
+     android:letterSpacing="0.1"
+     android:text="@{gameViewModel.secretWordDisplay}"
+     tools:text="efghhjk"/>
+
+    <TextView
+        android:id="@+id/lives"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@{@string/lives_left(gameViewModel.livesLeft)}"
+        tools:text="Lives"/>
+
+    <TextView
+        android:id="@+id/incorrect_guesses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@{@string/incorrect_guesses(gameViewModel.incorrectGuesses)}"
+        tools:text="Incorrect Guesses"/>
+
+    <EditText
+        android:id="@+id/guess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:hint="@string/guess_a_letter"
+        android:inputType="text"
+        android:maxLines="1"
+        android:autofillHints="guessa word" />
+
+    <Button
+        android:id="@+id/guess_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/guess"/>
+
+        <Button
+            android:id="@+id/finish_game_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="@string/finish_game"
+            android:onClick="@{() -> gameViewModel.finishGame()}"/>
+
+
+    </LinearLayout>
+</layout>
